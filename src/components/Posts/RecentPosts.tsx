@@ -12,7 +12,6 @@ const RecentPosts: React.FC = () => {
       return 1;
     }
   });
-  console.log(topThreePosts.slice(0, 3));
   return (
     <div className={classes.recent__posts}>
       <div className={classes.title}>
@@ -21,6 +20,7 @@ const RecentPosts: React.FC = () => {
       <div>
         {topThreePosts.slice(0, 3).map((each) => (
           <Li
+            key={each.id}
             title={each.title}
             date={each.time}
             image={each.image}

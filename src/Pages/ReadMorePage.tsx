@@ -1,13 +1,10 @@
 import React from "react";
 import { useParams } from "react-router";
+import ReadMore from "../components/ReadMore/ReadMore";
 
-const ReadMore: React.FC = () => {
+const ReadMorePage: React.FC = () => {
   const params = useParams();
-  return (
-    <section>
-      <h1>Read More Page for {params.postID}</h1>
-    </section>
-  );
+  return <ReadMore id={params.postID!.toString()} />;
 };
 
-export default ReadMore;
+export default ReadMorePage;

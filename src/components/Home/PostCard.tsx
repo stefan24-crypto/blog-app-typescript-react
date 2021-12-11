@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./PostCard.module.css";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import { useNavigate } from "react-router";
 
 interface PostCardProps {
   image: string;
@@ -21,6 +22,10 @@ const PostCard: React.FC<PostCardProps> = ({
   description,
   id,
 }) => {
+  const navigate = useNavigate();
+  const goToContinueReading = () => {
+    navigate(`/post/${id}`);
+  };
   return (
     <div className={classes.card}>
       <header className={classes.header}>
@@ -46,6 +51,11 @@ const PostCard: React.FC<PostCardProps> = ({
         </div>
         <div className={classes.desc}>
           <p>{description}</p>
+        </div>
+        <div className={classes.read_more_btn}>
+          <button className={classes.btn} onClick={goToContinueReading}>
+            Continue Reading
+          </button>
         </div>
       </div>
     </div>

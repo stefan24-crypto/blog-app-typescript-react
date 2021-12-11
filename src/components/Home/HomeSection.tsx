@@ -11,6 +11,7 @@ const HomeSection: React.FC = () => {
       <section className={classes.section}>
         {posts.map((each) => (
           <PostCard
+            key={each.id}
             id={each.id}
             title={each.title}
             date={each.time}
