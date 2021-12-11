@@ -1,0 +1,8 @@
+.app {
+  display: flex;
+  background-color: var(--primary-bg);
+}
+
+main {
+  width: 100%;
+}

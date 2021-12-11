@@ -1,0 +1,15 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  gap: 1.5em;
+  margin-top: 2em;
+}
+
+.title {
+  text-align: center;
+  font-size: clamp(30px, 4vw, 40px);
+  background: linear-gradient(to top, var(--light-blue), var(--purplish));
+  background-clip: text;
+  color: transparent;
+}

@@ -1,0 +1,65 @@
+.card {
+  border-radius: 0.4rem;
+  padding: 1em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  /* max-width: 500px; */
+  width: 90%;
+  margin: 0 auto;
+}
+.header {
+  position: relative;
+  border-radius: 0.4rem;
+  width: 100%;
+}
+
+.img {
+  width: 100%;
+  border-radius: 0.4rem;
+  object-fit: contain;
+}
+
+.prof__pic {
+  max-width: 40px;
+}
+
+.author_and_date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: clamp(0.4rem, 1.5vw, 0.9rem);
+  color: rgb(48, 48, 48);
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.prof__pic {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.desc {
+  text-align: center;
+}

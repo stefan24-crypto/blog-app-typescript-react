@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Routes, Route } from "react-router";
+import Layout from "./components/Layout/Layout";
+import HomePage from "./Pages/HomePage";
+import ReadMore from "./Pages/ReadMorePage";
+import CategoryPage from "./Pages/CategoryPage";
+import AddPostPage from "./Pages/AddPostPage";
+import ProfilePage from "./Pages/ProfilePage";
 
-function App() {
+//Add Authentication
+//Add ability to hover on the image and let an overlay pop up to read more
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/post/:postID" element={<ReadMore />} />
+        <Route path="/:category" element={<CategoryPage />} />
+        <Route path="/add" element={<AddPostPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+      </Routes>
+    </Layout>
   );
-}
+};
 
 export default App;

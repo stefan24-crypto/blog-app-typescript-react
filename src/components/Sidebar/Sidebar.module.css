@@ -1,0 +1,10 @@
+.sidebar {
+  position: sticky;
+  top: 0;
+  width: 450px;
+  height: 100vh;
+  right: 0;
+  padding: 1rem;
+  /* background-color: blue; */
+  background: linear-gradient(to top, var(--light-blue), var(--purplish));
+}

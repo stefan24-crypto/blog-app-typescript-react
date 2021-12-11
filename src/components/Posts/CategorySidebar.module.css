@@ -1,0 +1,24 @@
+.categories {
+  background-color: white;
+  margin-top: 2em;
+  border-radius: 0.4em;
+  padding: 0.8em;
+}
+
+.all {
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  padding: 0.5em 1em;
+  /* transition: 200ms ease-in; */
+  border-radius: 0.4rem;
+}
+
+.link:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.171);
+}
