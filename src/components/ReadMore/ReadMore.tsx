@@ -2,6 +2,7 @@ import React from "react";
 import { useAppSelector } from "../../store/hooks";
 import classes from "./ReadMore.module.css";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import CommentSection from "./CommentSection";
 
 interface ReadMoreProps {
   id: string;
@@ -38,11 +39,13 @@ const ReadMore: React.FC<ReadMoreProps> = ({ id }) => {
         <article className={classes.article}>
           {thisPost.article.map((each) => (
             <p key={Math.random().toString()}>
-              <br />
               {each}
+              <br />
+              <br />
             </p>
           ))}
         </article>
+        <CommentSection thisPost={thisPost} />
       </main>
     </section>
   );

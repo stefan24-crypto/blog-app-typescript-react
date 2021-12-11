@@ -69,20 +69,3 @@
   justify-content: center;
   align-items: flex-end;
 }
-
-.btn {
-  padding: 0.8em 1em;
-  border-radius: 100em;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  background: linear-gradient(to top right, var(--light-blue), var(--purplish));
-  color: white;
-  font-weight: 600;
-  transition: 200ms ease-in-out;
-}
-
-.btn:hover {
-  background: linear-gradient(to top left, var(--light-blue), var(--purplish));
-  transform: scale(1.1);
-}

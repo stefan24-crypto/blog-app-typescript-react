@@ -10,6 +10,7 @@ import ProfilePage from "./Pages/ProfilePage";
 
 //Add Authentication
 //Add ability to hover on the image and let an overlay pop up to read more
+//Check form double spaces when writing the ariticle. That indicates a new paragraph
 
 const App: React.FC = () => {
   return (

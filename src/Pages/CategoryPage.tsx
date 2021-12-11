@@ -1,14 +1,10 @@
 import React from "react";
 import { useParams } from "react-router";
+import CategorySection from "../components/Categories/CategorySection";
 
 const CategoryPage: React.FC = () => {
-  //get category from url
   const params = useParams();
-  return (
-    <section>
-      <h1>Categor Page for {params.category}</h1>
-    </section>
-  );
+  return <CategorySection category={params.category!.toString()} />;
 };
 
 export default CategoryPage;

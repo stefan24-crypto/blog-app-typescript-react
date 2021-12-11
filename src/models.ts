@@ -2,6 +2,7 @@ interface Comment {
   id: string;
   text: string;
   commentedBy: string;
+  time: Date;
 }
 
 export interface Post {

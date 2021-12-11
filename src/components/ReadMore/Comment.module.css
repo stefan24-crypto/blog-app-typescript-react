@@ -1,0 +1,18 @@
+.commenter_time {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.author {
+  font-weight: 600;
+}
+
+.comment {
+  margin: 0.8em 0;
+}
+
+.content {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
