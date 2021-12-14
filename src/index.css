@@ -17,3 +17,10 @@ html {
   --other-blue: #84ceeb;
   -darker-blue: #5680e9;
 }
+
+.not_logged_in {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

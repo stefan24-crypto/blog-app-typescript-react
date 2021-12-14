@@ -1,4 +1,3 @@
-import { arch } from "os";
 import React from "react";
 import { useAppSelector } from "../../store/hooks";
 import PostCard from "../Home/PostCard";

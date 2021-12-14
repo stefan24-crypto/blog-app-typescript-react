@@ -1,11 +1,8 @@
 import React from "react";
+import Profile from "../components/Profile/Profile";
 
 const ProfilePage: React.FC = () => {
-  return (
-    <section>
-      <h1>Profile Page</h1>
-    </section>
-  );
+  return <Profile />;
 };
 
 export default ProfilePage;

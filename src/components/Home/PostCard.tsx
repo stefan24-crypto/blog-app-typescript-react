@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./PostCard.module.css";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { useNavigate } from "react-router";
-import Button from "../UI/Button";
+import CustomButton from "../UI/Button";
 
 interface PostCardProps {
   image: string;
@@ -54,7 +54,9 @@ const PostCard: React.FC<PostCardProps> = ({
           <p>{description}</p>
         </div>
         <div className={classes.read_more_btn}>
-          <Button onClick={goToContinueReading}>Continue Reading</Button>
+          <CustomButton onClick={goToContinueReading}>
+            Continue Reading
+          </CustomButton>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { useAppSelector } from "../../store/hooks";
+import FeaturedPosts from "./FeaturedPosts";
 import classes from "./HomeSection.module.css";
 import PostCard from "./PostCard";
 
@@ -8,6 +9,9 @@ const HomeSection: React.FC = () => {
   return (
     <Fragment>
       <h1 className={classes.title}>Blogger</h1>
+      <section className={classes.featuredPosts}>
+        <FeaturedPosts />
+      </section>
       <section className={classes.section}>
         {posts.map((each) => (
           <PostCard

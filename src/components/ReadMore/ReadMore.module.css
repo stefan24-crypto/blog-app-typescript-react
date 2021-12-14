@@ -46,3 +46,9 @@
 .title {
   font-size: 1.5rem;
 }
+
+.not_logged_in {
+  padding: 1em;
+  font-size: 2rem;
+  text-align: center;
+}

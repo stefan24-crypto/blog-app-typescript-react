@@ -2,8 +2,10 @@ import React, { Fragment } from "react";
 import { Post } from "../../models";
 import classes from "./CommentSection.module.css";
 import TextField from "@mui/material/TextField";
-import Button from "../UI/Button";
+import CustomButton from "../UI/Button";
 import Comment from "./Comment";
+import { useAppSelector } from "../../store/hooks";
+import { TramOutlined } from "@mui/icons-material";
 
 interface CommentSectionProps {
   thisPost: Post;
@@ -28,14 +30,14 @@ const CommentSection: React.FC<CommentSectionProps> = ({ thisPost }) => {
             rows={5}
             fullWidth
           />
-          <Button onClick={addCommentHandler} type="submit">
+          <CustomButton onClick={addCommentHandler} type="submit">
             Add Comment
-          </Button>
+          </CustomButton>
         </form>
       </section>
       <section className={classes.comments}>
         {thisPost.comments.length === 0 ? (
-          <h1>No comments yet!</h1>
+          <h1 className={classes.no_comment}>No comments yet!</h1>
         ) : (
           <div className={classes.content}>
             <div className={classes.num_comments}>

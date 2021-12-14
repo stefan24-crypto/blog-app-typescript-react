@@ -13,3 +13,7 @@
   background-clip: text;
   color: transparent;
 }
+
+.featuredPosts {
+  width: 100%;
+}

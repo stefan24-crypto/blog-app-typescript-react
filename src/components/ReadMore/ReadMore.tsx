@@ -9,6 +9,7 @@ interface ReadMoreProps {
 }
 
 const ReadMore: React.FC<ReadMoreProps> = ({ id }) => {
+  const user = useAppSelector((state) => state.auth.curUser);
   const posts = useAppSelector((state) => state.data.posts);
   const thisPost = posts.find((each) => each.id === id);
   if (!thisPost) return <h1>No Post Found</h1>;
@@ -45,7 +46,11 @@ const ReadMore: React.FC<ReadMoreProps> = ({ id }) => {
             </p>
           ))}
         </article>
-        <CommentSection thisPost={thisPost} />
+        {user ? (
+          <CommentSection thisPost={thisPost} />
+        ) : (
+          <h1 className={classes.not_logged_in}>Login To Add Comments</h1>
+        )}
       </main>
     </section>
   );

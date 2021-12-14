@@ -38,3 +38,24 @@
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.068);
 }
+
+.img {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.logout {
+  cursor: pointer;
+  color: white;
+  padding: 1rem 0.5em;
+  transition: 200ms ease;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+}
+
+.logout:hover {
+  background-color: rgba(0, 0, 0, 0.068);
+}

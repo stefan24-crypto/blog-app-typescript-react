@@ -1,0 +1,54 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 210px;
+  max-width: 175px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 0.4em;
+  color: white;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  transition: 200ms ease-in;
+}
+
+.overlay {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.342);
+  border-radius: 0.4em;
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.075);
+}
+
+.img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.date {
+  font-size: 0.7rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.author {
+  display: flex;
+  font-size: 0.7rem;
+  align-items: center;
+  gap: 10px;
+}

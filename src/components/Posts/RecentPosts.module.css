@@ -2,6 +2,7 @@
   background-color: white;
   padding: 0.8em;
   border-radius: 0.4em;
+  max-height: 350px;
 }
 
 .title {
