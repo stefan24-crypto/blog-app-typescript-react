@@ -46,7 +46,7 @@
 .info {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1.2em;
 }
 
 .author {
@@ -62,6 +62,8 @@
 
 .desc {
   text-align: center;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .read_more_btn {

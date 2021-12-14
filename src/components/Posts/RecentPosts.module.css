@@ -3,6 +3,7 @@
   padding: 0.8em;
   border-radius: 0.4em;
   max-height: 350px;
+  overflow-y: auto;
 }
 
 .title {

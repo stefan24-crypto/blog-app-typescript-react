@@ -3,6 +3,9 @@
   margin-top: 2em;
   border-radius: 0.4em;
   padding: 0.8em;
+  max-height: 300px;
+  overflow-y: auto;
+  width: 100%;
 }
 
 .all {
@@ -14,9 +17,7 @@
   text-decoration: none;
   color: black;
   padding: 0.5em 1em;
-  /* transition: 200ms ease-in; */
   border-radius: 0.4rem;
-  max-height: 350px;
 }
 
 .link:hover {

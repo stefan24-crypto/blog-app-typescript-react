@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useRef } from "react";
 import classes from "./AddPost.module.css";
 import add from "../../images/insert-picture-icon.png";
 import { TextField } from "@mui/material";
@@ -6,18 +6,25 @@ import { Menu, MenuItem } from "@mui/material";
 import Button from "@mui/material/Button";
 import CustomButton from "../UI/Button";
 import Overlay from "./Overlay";
-import { useAppSelector } from "../../store/hooks";
+import { Post } from "../../models";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { auth } from "../../firebase";
+import { dataActions } from "../../store/data-slice";
+import { useNavigate } from "react-router";
 
 const AddPost: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const user = useAppSelector((state) => state.auth.curUser);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [didChooseCategory, setDidChooseCategory] = useState<boolean>(false);
-
-  const [chosenCategory, setChosenCategory] = useState<string | null>("");
-
+  const [chosenCategory, setChosenCategory] = useState<string>("");
   const [imageField, setImageField] = useState<boolean>(false);
-
-  const [capturedImage, setCapturedImage] = useState<string | null>(null);
-  const [theImage, setTheImage] = useState<string | null>(null); // use this when submitting the entire form
+  const [capturedImage, setCapturedImage] = useState<string>("");
+  const [theImage, setTheImage] = useState<string>(""); // use this when submitting the entire form
+  const titleRef = useRef<HTMLInputElement>();
+  const shortDescriptionRef = useRef<HTMLInputElement>();
+  const articleRef = useRef<HTMLInputElement>();
 
   const open = Boolean(anchorEl);
 
@@ -29,6 +36,7 @@ const AddPost: React.FC = () => {
   };
 
   const chooseCategory = (e: React.MouseEvent<HTMLElement>) => {
+    if (!e.currentTarget.textContent) return;
     setChosenCategory(e.currentTarget.textContent);
     setDidChooseCategory(true);
   };
@@ -42,21 +50,40 @@ const AddPost: React.FC = () => {
     e.preventDefault();
     setTheImage(capturedImage);
     setImageField(false);
-    setCapturedImage(null);
+    setCapturedImage("");
   };
-
-  const submitHandler = (e: React.FormEvent) => {};
-
-  const cancelHandler = (e: React.FormEvent) => {};
-
   const showImageField = () => {
     setImageField(true);
   };
-
   const hideImageField = () => {
     setImageField(false);
   };
 
+
+  const submitHandler = (e: React.FormEvent) => {
+    e.preventDefault();
+    const data: Post = {
+      id: Math.random().toString(),
+      title: titleRef.current!.value,
+      author: user?.displayName || "No Author",
+      image: theImage,
+      time: new Date(),
+      description: shortDescriptionRef.current!.value,
+      category: chosenCategory,
+      profilePic:
+        user?.photoURL ||
+        "https://carnbrae.com.au/wp-content/uploads/2021/05/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg",
+      article: articleRef.current!.value.split("  "),
+      comments: [],
+    };
+    console.log(data);
+    dispatch(dataActions.addPost(data));
+    navigate("/");
+    //almost there
+  };
+  const cancelHandler = (e: React.FormEvent) => {
+    navigate("/");
+  };
   return (
     <Fragment>
       {imageField && (
@@ -99,6 +126,7 @@ const AddPost: React.FC = () => {
               variant="outlined"
               required
               inputProps={{ maxLength: 40 }}
+              inputRef={titleRef}
             />
           </div>
           <div className={classes.short_description}>
@@ -111,6 +139,7 @@ const AddPost: React.FC = () => {
               variant="outlined"
               required
               inputProps={{ maxLength: 140 }}
+              inputRef={shortDescriptionRef}
             />
           </div>
           <div className={classes.article}>
@@ -123,6 +152,7 @@ const AddPost: React.FC = () => {
               required
               multiline
               rows={20}
+              inputRef={articleRef}
             />
           </div>
           <div className={classes.category}>

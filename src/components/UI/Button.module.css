@@ -8,7 +8,7 @@
   background: linear-gradient(to top right, var(--light-blue), var(--purplish));
   color: white;
   font-weight: 600;
-  transition: 200ms ease-in;
+  transition: 200ms ease;
 }
 
 .btn:hover {

@@ -3,16 +3,23 @@ import { useAppSelector } from "../../store/hooks";
 import classes from "./ReadMore.module.css";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import CommentSection from "./CommentSection";
+import PreviousOrNext from "./PreviousOrNext";
 
 interface ReadMoreProps {
   id: string;
 }
+//Show Previous and Next posts
 
 const ReadMore: React.FC<ReadMoreProps> = ({ id }) => {
   const user = useAppSelector((state) => state.auth.curUser);
   const posts = useAppSelector((state) => state.data.posts);
   const thisPost = posts.find((each) => each.id === id);
   if (!thisPost) return <h1>No Post Found</h1>;
+
+  const thisIndex = posts.findIndex((each) => Number(each.id === thisPost.id));
+
+  // console.log(posts.findIndex((each) => Number(each.id === thisPost.id) - 1));
+  console.log(posts.slice(-1)[0]);
 
   return (
     <section className={classes.app}>
@@ -46,6 +53,18 @@ const ReadMore: React.FC<ReadMoreProps> = ({ id }) => {
             </p>
           ))}
         </article>
+        <section className={classes.prev_or_Next}>
+          {thisIndex !== 0 ? (
+            <PreviousOrNext prevOrNextID={thisIndex - 1} isPrev={true} />
+          ) : (
+            ""
+          )}
+          {thisPost.id !== posts.slice(-1)[0].id ? (
+            <PreviousOrNext prevOrNextID={thisIndex + 1} isPrev={false} />
+          ) : (
+            ""
+          )}
+        </section>
         {user ? (
           <CommentSection thisPost={thisPost} />
         ) : (

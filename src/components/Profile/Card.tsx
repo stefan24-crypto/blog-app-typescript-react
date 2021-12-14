@@ -20,6 +20,7 @@ const CardForPost: React.FC<CardForPostProps> = ({
   shortDescrition,
   id,
 }) => {
+  //Fix font and stuff
   return (
     <Card sx={{ maxHeight: 450 }}>
       <CardMedia component="img" height="200" image={image} alt="post_image" />

@@ -1,10 +1,13 @@
 .sidebar {
   position: sticky;
   top: 0;
-  width: 450px;
+  width: 400px;
   height: 100vh;
   right: 0;
   padding: 1rem;
-  /* background-color: blue; */
   background: linear-gradient(to top, var(--light-blue), var(--purplish));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

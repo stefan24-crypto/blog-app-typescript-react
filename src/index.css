@@ -18,6 +18,10 @@ html {
   -darker-blue: #5680e9;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
 .not_logged_in {
   display: flex;
   align-items: center;

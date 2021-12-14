@@ -1,13 +1,13 @@
 import React from "react";
 import classes from "./Comment.module.css";
 
-interface CommentProps {
+interface CommentDivProps {
   commentedBy: string;
   time: Date;
   text: string;
 }
 
-const Comment: React.FC<CommentProps> = ({ commentedBy, time, text }) => {
+const CommentDiv: React.FC<CommentDivProps> = ({ commentedBy, time, text }) => {
   return (
     <div className={classes.comment}>
       <div className={classes.commenter_time}>
@@ -21,4 +21,4 @@ const Comment: React.FC<CommentProps> = ({ commentedBy, time, text }) => {
   );
 };
 
-export default Comment;
+export default CommentDiv;
