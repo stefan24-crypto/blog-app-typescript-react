@@ -27,7 +27,7 @@ const PreviousOrNext: React.FC<PreviousOrNextProps> = ({
       onClick={goToPage}
     >
       <div className={classes.content}>
-        <p>{thisPost.time.toDateString()}</p>
+        <p>{thisPost.time.toDate().toDateString()}</p>
         <h1>{thisPost.title}</h1>
         {isPrev ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />}
       </div>

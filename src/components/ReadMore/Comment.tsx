@@ -1,9 +1,10 @@
+import { Timestamp } from "@firebase/firestore";
 import React from "react";
 import classes from "./Comment.module.css";
 
 interface CommentDivProps {
   commentedBy: string;
-  time: Date;
+  time: Timestamp;
   text: string;
 }
 
@@ -12,7 +13,7 @@ const CommentDiv: React.FC<CommentDivProps> = ({ commentedBy, time, text }) => {
     <div className={classes.comment}>
       <div className={classes.commenter_time}>
         <p className={classes.author}>{commentedBy}</p>
-        <p>{time.toDateString()}</p>
+        <p>{time.toDate().toDateString()}</p>
       </div>
       <div className={classes.content}>
         <p>{text}</p>

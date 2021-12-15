@@ -3,10 +3,11 @@ import classes from "./PostCard.module.css";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { useNavigate } from "react-router";
 import CustomButton from "../UI/Button";
+import { Timestamp } from "@firebase/firestore";
 
 interface PostCardProps {
   image: string;
-  date: Date;
+  date: Timestamp;
   author: string;
   profile_pic: string;
   description: string;
@@ -47,7 +48,7 @@ const PostCard: React.FC<PostCardProps> = ({
           </div>
           <div className={classes.date}>
             <CalendarTodayIcon className={classes.date_icon} />
-            <p>{date.toDateString()}</p>
+            <p>{date.toDate().toDateString()}</p>
           </div>
         </div>
         <div className={classes.desc}>

@@ -1,9 +1,10 @@
+import { Timestamp } from "@firebase/firestore";
 import React from "react";
 import { useNavigate } from "react-router";
 import classes from "./FeaturedCard.module.css";
 
 interface FeaturedCardProps {
-  date: Date;
+  date: Timestamp;
   title: string;
   author: string;
   prof_pic: string;
@@ -31,7 +32,7 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
     >
       <div className={classes.overlay}>
         <div className={classes.date}>
-          <p>{date.toDateString()}</p>
+          <p>{date.toDate().toDateString()}</p>
         </div>
         <div className={classes.title}>
           <h1>{title}</h1>

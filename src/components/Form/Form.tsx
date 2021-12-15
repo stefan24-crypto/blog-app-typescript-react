@@ -10,6 +10,8 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { dataActions } from "../../store/data-slice";
 import { useNavigate } from "react-router";
 import Overlay from "../AddPost/Overlay";
+import { addDoc, Timestamp, collection } from "@firebase/firestore";
+import { db } from "../../firebase";
 
 interface FormProps {
   isEdit?: boolean;
@@ -34,6 +36,7 @@ const Form: React.FC<FormProps> = ({
 }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const postsCollection = collection(db, "posts");
   const user = useAppSelector((state) => state.auth.curUser);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [didChooseCategory, setDidChooseCategory] = useState<boolean>(
@@ -82,14 +85,14 @@ const Form: React.FC<FormProps> = ({
     setImageField(false);
   };
 
-  const submitHandler = (e: React.FormEvent) => {
+  const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
     const data: Post = {
       id: defaultId || Math.random().toString(),
       title: titleRef.current!.value,
       author: user?.displayName || "No Author",
       image: theImage,
-      time: new Date(),
+      time: Timestamp.now(),
       description: shortDescriptionRef.current!.value,
       category: chosenCategory,
       profilePic:
@@ -104,9 +107,10 @@ const Form: React.FC<FormProps> = ({
       console.log(data);
       navigate("/");
     } else {
-      //ADd Firebase Adding Post Logic here
+      //Add Firebase Adding Post Logic here
       console.log(data);
-      dispatch(dataActions.addPost(data));
+      // dispatch(dataActions.addPost(data));
+      await addDoc(postsCollection, data);
       navigate("/");
     }
     //almost there
@@ -162,14 +166,14 @@ const Form: React.FC<FormProps> = ({
           </div>
           <div className={classes.short_description}>
             <label htmlFor="short_description">
-              Add Short Description(max: 140 characters)
+              Add Short Description(max: 200 characters)
             </label>
             <TextField
               id="short_description"
               label="Short Description"
               variant="outlined"
               required
-              inputProps={{ maxLength: 140 }}
+              inputProps={{ maxLength: 200 }}
               inputRef={shortDescriptionRef}
               defaultValue={defaultDesc || ""}
             />

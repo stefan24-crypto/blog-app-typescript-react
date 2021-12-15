@@ -1,8 +1,10 @@
+import { Timestamp } from "@firebase/firestore";
+
 export interface Comment {
   id: string;
   text: string;
   commentedBy: string;
-  time: Date;
+  time: Timestamp;
 }
 
 export interface Post {
@@ -10,7 +12,7 @@ export interface Post {
   title: string;
   author: string;
   image: string;
-  time: Date;
+  time: Timestamp;
   description: string;
   category: string;
   profilePic: string;

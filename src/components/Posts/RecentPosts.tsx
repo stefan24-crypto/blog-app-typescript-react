@@ -7,7 +7,7 @@ const RecentPosts: React.FC = () => {
   const posts = useAppSelector((state) => state.data.posts);
   const topThreePosts = [...posts];
   topThreePosts.sort((a, b) => {
-    if (a.time.getTime() > b.time.getTime()) return -1;
+    if (a.time.seconds > b.time.seconds) return -1;
     else {
       return 1;
     }

@@ -47,7 +47,7 @@ const ReadMore: React.FC<ReadMoreProps> = ({ id }) => {
           </div>
           <div className={classes.date}>
             <CalendarTodayIcon />
-            {thisPost.time.toDateString()}
+            {thisPost.time.toDate().toDateString()}
           </div>
         </div>
         <div className={classes.title}>

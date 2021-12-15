@@ -7,7 +7,7 @@ interface state {
 }
 
 const initialState: state = {
-  posts: DUMMY_POSTS,
+  posts: [],
 };
 
 const dataSlice = createSlice({

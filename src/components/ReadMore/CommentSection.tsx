@@ -6,6 +6,8 @@ import CustomButton from "../UI/Button";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { dataActions } from "../../store/data-slice";
 import CommentDiv from "./Comment";
+import { doc, Timestamp, updateDoc } from "@firebase/firestore";
+import { db } from "../../firebase";
 
 interface CommentSectionProps {
   thisPost: Post;
@@ -15,17 +17,23 @@ const CommentSection: React.FC<CommentSectionProps> = ({ thisPost }) => {
   const commentInputRef = useRef<HTMLInputElement>();
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.auth.curUser);
-  const addCommentHandler = (e: React.FormEvent) => {
+  const addCommentHandler = async (e: React.FormEvent) => {
     e.preventDefault();
-    const comment: Comment = {
-      id: Math.random().toString(),
-      text: commentInputRef.current!.value,
-      commentedBy: user!.displayName || "No author",
-      time: new Date(),
+    const userDoc = doc(db, "posts", thisPost.id);
+    const newFields = {
+      comments: [
+        {
+          id: Math.random().toString(),
+          text: commentInputRef.current!.value,
+          commentedBy: user!.displayName || "No author",
+          time: Timestamp.now(),
+        },
+      ],
     };
-    dispatch(dataActions.addComment({ id: thisPost.id, comment: comment }));
+    await updateDoc(userDoc, newFields);
     commentInputRef.current!.value = "";
   };
+
   return (
     <Fragment>
       <section className={classes.comment_section}>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Post } from "./models";
-
+import { Timestamp } from "@firebase/firestore";
 /*
 image
 short_description
@@ -29,7 +29,7 @@ export const DUMMY_POSTS: Post[] = [
     author: "coffee__coder",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    time: new Date(2018, 15, 24, 10, 33, 30),
+    time: new Timestamp(1591758000, 0),
     image: "https://wallpaper.dog/large/20512965.png",
     category: "Other",
     profilePic: "https://wallpapercave.com/wp/wp9109396.jpg",
@@ -45,7 +45,7 @@ export const DUMMY_POSTS: Post[] = [
         id: "c1",
         text: "This is the best in the world OMG",
         commentedBy: "stefanKatwaroo",
-        time: new Date(2019, 15, 24, 10, 14, 30),
+        time:  new Timestamp(1291758000, 0),
       },
     ],
   },
@@ -55,7 +55,7 @@ export const DUMMY_POSTS: Post[] = [
     author: "coffee__coder",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    time: new Date(2019, 15, 24, 10, 14, 30),
+    time:  new Timestamp(1598758000, 0),
     image: "https://wallpapercave.com/wp/wp5070716.jpg",
     category: "Web Development",
     profilePic: "https://wallpapercave.com/wp/wp9109396.jpg",
@@ -69,7 +69,7 @@ export const DUMMY_POSTS: Post[] = [
         id: "c1",
         text: "This is the best in the world OMG",
         commentedBy: "coffee__coder",
-        time: new Date(2019, 15, 24, 10, 14, 30),
+        time:  new Timestamp(145758000, 0),
       },
     ],
   },
@@ -79,7 +79,7 @@ export const DUMMY_POSTS: Post[] = [
     author: "coffee__coder",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    time: new Date(2021, 11, 24, 10, 33, 30),
+    time:  new Timestamp(1594858000, 0),
     image:
       "https://www.chillblast.com/learn/wp-content/uploads/2020/06/turned-on-flat-screen-computer-monitor-with-speakers-and-keyboard-4k.jpg",
     category: "Web Development",
@@ -94,7 +94,7 @@ export const DUMMY_POSTS: Post[] = [
         id: "c1",
         text: "This is the best in the world OMG",
         commentedBy: "stefanKatwaroo",
-        time: new Date(2019, 15, 24, 10, 14, 30),
+        time:  new Timestamp(1671758000, 0),
       },
     ],
   },
@@ -104,7 +104,7 @@ export const DUMMY_POSTS: Post[] = [
     author: "StefanK",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    time: new Date(2011, 15, 21, 10, 33, 30),
+    time:   new Timestamp(1701758000, 0),
     image:
       "https://images.unsplash.com/photo-1603468620905-8de7d86b781e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2R1Y3Rpdml0eXxlbnwwfHwwfHw%3D&w=1000&q=80",
     category: "Coding",
@@ -120,7 +120,7 @@ export const DUMMY_POSTS: Post[] = [
         id: "c1",
         text: "This is the best in the world OMG",
         commentedBy: "coffee__coder",
-        time: new Date(2019, 15, 24, 10, 14, 30),
+        time:  new Timestamp(1561758000, 0),
       },
     ],
   },
@@ -130,7 +130,7 @@ export const DUMMY_POSTS: Post[] = [
     author: "StefanK",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    time: new Date(2018, 15, 24, 10, 33, 30),
+    time: new Timestamp(1602758000, 0),
     image:
       "https://startuppakistan.com.pk/wp-content/uploads/2021/02/c-users-dell-desktop-xzesdatxbnmdw4sk49ot4z-1200-1-1.jpeg",
     category: "Coding",
@@ -146,7 +146,7 @@ export const DUMMY_POSTS: Post[] = [
         id: "c1",
         text: "This is the best in the world OMG",
         commentedBy: "coffee__coder",
-        time: new Date(2019, 15, 24, 10, 14, 30),
+        time:  new Timestamp(1591758000, 0),
       },
     ],
   },
@@ -156,7 +156,7 @@ export const DUMMY_POSTS: Post[] = [
     author: "coffee__coder",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    time: new Date(2018, 15, 24, 10, 33, 30),
+    time:  new Timestamp(1511758000, 0),
     image: "https://i.imgur.com/v0ae8WM.jpg",
     category: "Web Development",
     profilePic: "https://wallpapercave.com/wp/wp9109396.jpg",
@@ -170,7 +170,7 @@ export const DUMMY_POSTS: Post[] = [
         id: "c1",
         text: "This is the best in the world OMG",
         commentedBy: "stefanKatwaroo",
-        time: new Date(2019, 15, 24, 10, 14, 30),
+        time:  new Timestamp(1541758000, 0),
       },
     ],
   },
@@ -180,7 +180,7 @@ export const DUMMY_POSTS: Post[] = [
     author: "coffee__coder",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    time: new Date(2020, 11, 24, 10, 33, 30),
+    time:  new Timestamp(1501758000, 0),
     image:
       "https://media.istockphoto.com/photos/top-above-high-angle-view-portrait-of-his-he-nice-attractive-focused-picture-id1279133399?b=1&k=20&m=1279133399&s=170667a&w=0&h=NQlgTmoZq5oFrqWKN6-AfbdP0E_mpMEo5kfgtzITdOc=",
     category: "Coding",
@@ -198,7 +198,7 @@ export const DUMMY_POSTS: Post[] = [
     author: "coffee__coder",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    time: new Date(2021, 5, 27, 10, 33, 30),
+    time: new Timestamp(1851758000, 0),
     image:
       "https://3.bp.blogspot.com/-2AXwPGQ05V4/XEXGSQtXCdI/AAAAAAAABBE/gC_YI1UO_7g6k_izEwkTR2ghemhXYWGIACKgBGAs/w5120-h2880-c/cristiano-ronaldo-57-8k.jpg",
     category: "Sports",
@@ -216,7 +216,7 @@ export const DUMMY_POSTS: Post[] = [
     author: "coffee__coder",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    time: new Date(2020, 5, 12, 10, 33, 30),
+    time:  new Timestamp(15831758000, 0),
     image:
       "https://assets-global.website-files.com/5fc46126e6be6c6b202a15e4/6112749a8cab4f1070bae4d6_Ali%20Abdaal%20Part-Time%20YouTuber%20Academy.jpg",
     category: "Education",
@@ -234,7 +234,7 @@ export const DUMMY_POSTS: Post[] = [
     author: "StefanK",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    time: new Date(2019, 7, 12, 10, 33, 30),
+    time: new Timestamp(1641758000, 0),
     image: "https://wallpaperaccess.com/full/685208.jpg",
     category: "Photography",
     profilePic:
@@ -249,13 +249,13 @@ export const DUMMY_POSTS: Post[] = [
         id: "c1",
         text: "This was really helpful",
         commentedBy: "coffee__coder",
-        time: new Date(2019, 6, 24, 10, 14, 30),
+        time:  new Timestamp(1481758000, 0),
       },
       {
         id: "c2",
         text: "This was amazing, thank you!",
         commentedBy: "coffee__coder",
-        time: new Date(2019, 3, 24, 10, 14, 30),
+        time:  new Timestamp(1481758000, 0),
       },
     ],
   },

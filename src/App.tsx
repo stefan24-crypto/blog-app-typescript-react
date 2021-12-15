@@ -13,6 +13,10 @@ import { authActions } from "./store/auth-slice";
 import ProfilePage from "./Pages/ProfilePage";
 import EditPost from "./components/EditPost/EditPost";
 import { db } from "./firebase";
+import { collection, onSnapshot } from "@firebase/firestore";
+import { dataActions } from "./store/data-slice";
+
+//Add Loding spinners
 
 const App: React.FC = () => {
   //Authentication
@@ -31,7 +35,18 @@ const App: React.FC = () => {
   }, []);
 
   //Data
-  useEffect(() => {}, []);
+  useEffect(() => {
+    onSnapshot(collection(db, "posts"), (snapshot) =>
+      snapshot.docs.map((doc) =>
+        dispatch(
+          dataActions.setPosts(
+            snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+          )
+        )
+      )
+    );
+  }, []);
+
   return (
     <Layout>
       <Routes>

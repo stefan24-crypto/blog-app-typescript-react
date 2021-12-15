@@ -6,6 +6,20 @@ import PostCard from "./PostCard";
 
 const HomeSection: React.FC = () => {
   const posts = useAppSelector((state) => state.data.posts);
+  // topThreePosts.sort((a, b) => {
+  //   if (a.time.seconds > b.time.seconds) return -1;
+  //   else {
+  //     return 1;
+  //   }
+  // });
+  const sortedPosts = [...posts];
+  sortedPosts.sort((a, b) => {
+    if (a.time.seconds > b.time.seconds) {
+      return -1;
+    } else {
+      return 1;
+    }
+  });
   return (
     <Fragment>
       <h1 className={classes.title}>Blogger</h1>
@@ -13,7 +27,7 @@ const HomeSection: React.FC = () => {
         <FeaturedPosts />
       </section>
       <section className={classes.section}>
-        {posts.map((each) => (
+        {sortedPosts.map((each) => (
           <PostCard
             key={each.id}
             id={each.id}
