@@ -4,6 +4,7 @@ import classes from "./ReadMore.module.css";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import CommentSection from "./CommentSection";
 import PreviousOrNext from "./PreviousOrNext";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 interface ReadMoreProps {
   id: string;
@@ -23,8 +24,16 @@ const ReadMore: React.FC<ReadMoreProps> = ({ id }) => {
 
   return (
     <section className={classes.app}>
-      <header className={classes.header}>
-        <img src={thisPost.image} className={classes.img} alt="header_image" />
+      <header
+        className={classes.header}
+        style={{ backgroundImage: `url(${thisPost.image})` }}
+      >
+        {/* <img src={thisPost.image} className={classes.img} alt="header_image" /> */}
+        {/* <div className={classes.animated}>👇</div>
+         */}
+        <div className={classes.animated}>
+          <KeyboardArrowDownIcon sx={{ fontSize: "3rem" }} />
+        </div>
       </header>
       <main className={classes.main}>
         <div className={classes.date_and_author}>

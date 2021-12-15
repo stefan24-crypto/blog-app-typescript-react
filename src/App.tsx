@@ -12,14 +12,10 @@ import { auth } from "./firebase";
 import { authActions } from "./store/auth-slice";
 import ProfilePage from "./Pages/ProfilePage";
 import EditPost from "./components/EditPost/EditPost";
-
-//Add Authentication
-//Add ability to hover on the image and let an overlay pop up to read more
-//Check form double spaces when writing the ariticle. That indicates a new paragraph
-// Also have a limit to the number of characters in the title
-// And also in the username when signing up
+import { db } from "./firebase";
 
 const App: React.FC = () => {
+  //Authentication
   const dispatch = useAppDispatch();
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -33,6 +29,9 @@ const App: React.FC = () => {
       unsubscribe();
     };
   }, []);
+
+  //Data
+  useEffect(() => {}, []);
   return (
     <Layout>
       <Routes>
@@ -42,7 +41,7 @@ const App: React.FC = () => {
         <Route path="/add" element={<AddPostPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/edit/:postID" element={<EditPost/>}/>
+        <Route path="/edit/:postID" element={<EditPost />} />
       </Routes>
     </Layout>
   );
