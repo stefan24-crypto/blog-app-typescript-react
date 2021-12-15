@@ -11,6 +11,7 @@ import { useAppDispatch } from "./store/hooks";
 import { auth } from "./firebase";
 import { authActions } from "./store/auth-slice";
 import ProfilePage from "./Pages/ProfilePage";
+import EditPost from "./components/EditPost/EditPost";
 
 //Add Authentication
 //Add ability to hover on the image and let an overlay pop up to read more
@@ -41,6 +42,7 @@ const App: React.FC = () => {
         <Route path="/add" element={<AddPostPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/edit/:postID" element={<EditPost/>}/>
       </Routes>
     </Layout>
   );

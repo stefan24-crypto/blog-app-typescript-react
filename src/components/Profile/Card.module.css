@@ -1,0 +1,58 @@
+.tile {
+  font-size: 1.2rem;
+}
+
+.btns {
+  /* padding: 1em; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1em;
+}
+
+.edit {
+  font-family: "Poppins";
+  padding: 0.6em 0.8em;
+  font-size: 1em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: linear-gradient(to top right, var(--light-blue), var(--purplish));
+  color: white;
+  font-weight: 600;
+  transition: 200ms ease;
+  width: 40%;
+  border-radius: 0.4em;
+}
+
+.edit:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.del {
+  font-family: "Poppins";
+  padding: 0.6em 0.8em;
+  font-size: 1em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: linear-gradient(to top right, rgb(243, 0, 0), rgb(124, 2, 2));
+  color: white;
+  font-weight: 600;
+  transition: 200ms ease;
+  width: 60%;
+  border-radius: 0.4em;
+}
+
+.del:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.content {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  height: 300px;
+  justify-content: space-between;
+}

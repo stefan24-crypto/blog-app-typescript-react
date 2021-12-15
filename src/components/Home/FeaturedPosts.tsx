@@ -13,15 +13,15 @@ const FeaturedPosts: React.FC = () => {
       slidesToSlide: 4,
     },
     SmallerDesktop: {
-      breakpoint: { max: 1350, min: 1000 },
+      breakpoint: { max: 1350, min: 1100 },
       items: 3,
     },
     tablet: {
-      breakpoint: { max: 1000, min: 464 },
+      breakpoint: { max: 1100, min: 700 },
       items: 2,
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 700, min: 0 },
       items: 1,
     },
   };

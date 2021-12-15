@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea, CardActions } from "@mui/material";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router";
 
 interface CardForPostProps {
   image: string;
@@ -20,26 +21,27 @@ const CardForPost: React.FC<CardForPostProps> = ({
   shortDescrition,
   id,
 }) => {
-  //Fix font and stuff
+  const navigate = useNavigate();
+  const goToEdit = () => {
+    navigate(`/edit/${id}`);
+  };
   return (
-    <Card sx={{ maxHeight: 450 }}>
+    <Card sx={{ maxHeight: 500 }}>
       <CardMedia component="img" height="200" image={image} alt="post_image" />
-      <CardActionArea>
-        <CardContent sx={{ height: 200 }}>
-          <Typography variant="h5">{title}</Typography>
-          <Typography variant="body2" color="text.secondary">
-            {shortDescrition}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions sx={{ display: "flex", justifyContent: "space-around" }}>
-        <Button variant="outlined" color="primary" sx={{ width: "50%" }}>
-          Edit
-        </Button>
-        <Button variant="outlined" color="error" sx={{ width: "50%" }}>
-          Delete
-        </Button>
-      </CardActions>
+      <div className={classes.content}>
+        <div className={classes.title}>
+          <h1>{title}</h1>
+        </div>
+        <div className={classes.desc}>
+          <p>{shortDescrition}</p>
+        </div>
+        <div className={classes.btns}>
+          <button className={classes.edit} onClick={goToEdit}>
+            Edit
+          </button>
+          <button className={classes.del}>Delete</button>
+        </div>
+      </div>
     </Card>
   );
 };
