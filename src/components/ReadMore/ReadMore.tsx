@@ -5,6 +5,7 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import CommentSection from "./CommentSection";
 import PreviousOrNext from "./PreviousOrNext";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import Loader from "react-loader-spinner";
 
 interface ReadMoreProps {
   id: string;
@@ -15,7 +16,12 @@ const ReadMore: React.FC<ReadMoreProps> = ({ id }) => {
   const user = useAppSelector((state) => state.auth.curUser);
   const posts = useAppSelector((state) => state.data.posts);
   const thisPost = posts.find((each) => each.id === id);
-  if (!thisPost) return <h1>No Post Found</h1>;
+  if (!thisPost)
+    return (
+      <div className="loader">
+        <Loader type="ThreeDots" color="FFF" />
+      </div>
+    );
 
   const thisIndex = posts.findIndex((each) => Number(each.id === thisPost.id));
 

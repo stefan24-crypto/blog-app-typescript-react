@@ -22,3 +22,11 @@
 .no_comment {
   text-align: center;
 }
+
+.loading {
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}

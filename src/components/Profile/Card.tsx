@@ -7,6 +7,8 @@ import { CardActionArea, CardActions } from "@mui/material";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router";
+import { doc, deleteDoc } from "@firebase/firestore";
+import { db } from "../../firebase";
 
 interface CardForPostProps {
   image: string;
@@ -25,6 +27,10 @@ const CardForPost: React.FC<CardForPostProps> = ({
   const goToEdit = () => {
     navigate(`/edit/${id}`);
   };
+  const deletePostHandler = async () => {
+    const postDoc = doc(db, "posts", id);
+    await deleteDoc(postDoc);
+  };
   return (
     <Card sx={{ maxHeight: 500 }}>
       <CardMedia component="img" height="200" image={image} alt="post_image" />
@@ -39,7 +45,9 @@ const CardForPost: React.FC<CardForPostProps> = ({
           <button className={classes.edit} onClick={goToEdit}>
             Edit
           </button>
-          <button className={classes.del}>Delete</button>
+          <button className={classes.del} onClick={deletePostHandler}>
+            Delete
+          </button>
         </div>
       </div>
     </Card>

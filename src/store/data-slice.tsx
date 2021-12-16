@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { DUMMY_POSTS } from "../dummy_posts";
 import { Post } from "../models";
 
 interface state {

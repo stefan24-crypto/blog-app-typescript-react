@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useRef } from "react";
+import React, { useState, Fragment, useRef, useEffect } from "react";
 import classes from "./Form.module.css";
 import add from "../../images/insert-picture-icon.png";
 import { TextField } from "@mui/material";
@@ -10,8 +10,16 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { dataActions } from "../../store/data-slice";
 import { useNavigate } from "react-router";
 import Overlay from "../AddPost/Overlay";
-import { addDoc, Timestamp, collection } from "@firebase/firestore";
+import {
+  addDoc,
+  Timestamp,
+  collection,
+  doc,
+  updateDoc,
+} from "@firebase/firestore";
 import { db } from "../../firebase";
+import { useValidateImageURL } from "use-validate-image-url";
+import { useLocation } from "react-router-dom";
 
 interface FormProps {
   isEdit?: boolean;
@@ -72,8 +80,12 @@ const Form: React.FC<FormProps> = ({
     setAnchorEl(null);
   };
 
+  const status = useValidateImageURL(capturedImage);
+
   const imageSubmitHandler = (e: React.FormEvent) => {
     e.preventDefault();
+    if (status === "invalid") return alert("Please enter a valid Image URL");
+
     setTheImage(capturedImage);
     setImageField(false);
     setCapturedImage("");
@@ -87,7 +99,16 @@ const Form: React.FC<FormProps> = ({
 
   const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
-    const data: Post = {
+    if (
+      titleRef.current!.value === "" ||
+      theImage === "" ||
+      shortDescriptionRef.current!.value === "" ||
+      articleRef.current!.value === "" ||
+      chosenCategory === ""
+    )
+      return alert("Please ensure all fields are filled");
+
+    const data = {
       id: defaultId || Math.random().toString(),
       title: titleRef.current!.value,
       author: user?.displayName || "No Author",
@@ -103,21 +124,20 @@ const Form: React.FC<FormProps> = ({
     };
 
     if (isEdit) {
-      //Add Firebase Editing Logic here
-      console.log(data);
       navigate("/");
+      if (!defaultId) return alert("Can't process at this time");
+      const userDoc = doc(db, "posts", defaultId);
+      const newFields = data;
+      await updateDoc(userDoc, newFields);
     } else {
-      //Add Firebase Adding Post Logic here
-      console.log(data);
-      // dispatch(dataActions.addPost(data));
       await addDoc(postsCollection, data);
       navigate("/");
     }
-    //almost there
   };
   const cancelHandler = (e: React.FormEvent) => {
     navigate("/");
   };
+
   return (
     <Fragment>
       {imageField && (

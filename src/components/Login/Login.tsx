@@ -9,7 +9,6 @@ import {
 import classes from "./Login.module.css";
 import { TextField } from "@mui/material";
 import CustomButton from "../UI/Button";
-import { ConstructionOutlined, Password } from "@mui/icons-material";
 import { useNavigate } from "react-router";
 
 const Login: React.FC = () => {
@@ -104,14 +103,14 @@ const Login: React.FC = () => {
         <div className={classes.btns}>
           <CustomButton
             onClick={changeAuthHandler}
-            type="button"
+            typeOfButton="button"
             className={classes.change}
           >
             {isLogin ? "Sign Up" : "Login"}
           </CustomButton>
           <CustomButton
             onClick={submitHandler}
-            type="submit"
+            typeOfButton="submit"
             className={classes.submit}
           >
             Submit

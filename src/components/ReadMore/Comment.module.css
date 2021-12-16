@@ -10,9 +10,21 @@
 
 .comment {
   margin: 0.8em 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .content {
   font-size: 0.9rem;
   font-weight: 300;
+}
+
+.del {
+  align-items: center;
+  padding: 1em;
+  transition: 200ms ease-in-out;
+  cursor: pointer;
+}
+.del:hover {
+  transform: scale(1.1);
 }

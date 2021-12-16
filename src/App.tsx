@@ -15,8 +15,7 @@ import EditPost from "./components/EditPost/EditPost";
 import { db } from "./firebase";
 import { collection, onSnapshot } from "@firebase/firestore";
 import { dataActions } from "./store/data-slice";
-
-//Add Loding spinners
+import { UIActions } from "./store/ui-slice";
 
 const App: React.FC = () => {
   //Authentication
@@ -36,15 +35,17 @@ const App: React.FC = () => {
 
   //Data
   useEffect(() => {
-    onSnapshot(collection(db, "posts"), (snapshot) =>
+    dispatch(UIActions.setIsLoading(true));
+    onSnapshot(collection(db, "posts"), (snapshot) => {
       snapshot.docs.map((doc) =>
         dispatch(
           dataActions.setPosts(
             snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
           )
         )
-      )
-    );
+      );
+      dispatch(UIActions.setIsLoading(false));
+    });
   }, []);
 
   return (
