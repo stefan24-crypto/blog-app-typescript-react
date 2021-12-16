@@ -1,13 +1,12 @@
-import React, { useState, Fragment, useRef, useEffect } from "react";
+import React, { useState, Fragment, useRef,  } from "react";
 import classes from "./Form.module.css";
 import add from "../../images/insert-picture-icon.png";
 import { TextField } from "@mui/material";
 import { Menu, MenuItem } from "@mui/material";
 import Button from "@mui/material/Button";
 import CustomButton from "../UI/Button";
-import { Post, Comment } from "../../models";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { dataActions } from "../../store/data-slice";
+import {  Comment } from "../../models";
+import {  useAppSelector } from "../../store/hooks";
 import { useNavigate } from "react-router";
 import Overlay from "../AddPost/Overlay";
 import {
@@ -19,7 +18,6 @@ import {
 } from "@firebase/firestore";
 import { db } from "../../firebase";
 import { useValidateImageURL } from "use-validate-image-url";
-import { useLocation } from "react-router-dom";
 
 interface FormProps {
   isEdit?: boolean;
@@ -42,7 +40,6 @@ const Form: React.FC<FormProps> = ({
   defaultId,
   defaultComments,
 }) => {
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const postsCollection = collection(db, "posts");
   const user = useAppSelector((state) => state.auth.curUser);

@@ -16,15 +16,6 @@ const dataSlice = createSlice({
     setPosts(state, action) {
       state.posts = action.payload;
     },
-    addPost(state, action) {
-      state.posts.unshift(action.payload);
-    },
-    addComment(state, action) {
-      const thisPost = state.posts.find(
-        (each) => each.id === action.payload.id
-      );
-      thisPost!.comments.unshift(action.payload.comment);
-    },
   },
 });
 

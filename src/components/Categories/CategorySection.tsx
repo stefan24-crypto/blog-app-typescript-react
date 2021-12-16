@@ -37,15 +37,6 @@ const CategorySection: React.FC<CategorySectionProps> = ({ category }) => {
         <h1>No Posts in This Category!</h1>
       </div>
     );
-  // interface PostCardProps {
-  //     image: string;
-  //     date: Date;
-  //     author: string;
-  //     profile_pic: string;
-  //     description: string;
-  //     title: string;
-  //     id: string;
-  //   }
 
   console.log(thesePosts);
 

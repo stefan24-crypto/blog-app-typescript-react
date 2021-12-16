@@ -25,7 +25,7 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
     navigate(`/post/${id}`);
   };
   return (
-    <div
+    <main
       className={classes.card}
       style={{ backgroundImage: `url(${image})` }}
       onClick={ReadMore}
@@ -42,7 +42,7 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
           <p>{author}</p>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

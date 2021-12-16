@@ -34,9 +34,6 @@ const ReadMore: React.FC<ReadMoreProps> = ({ id }) => {
         className={classes.header}
         style={{ backgroundImage: `url(${thisPost.image})` }}
       >
-        {/* <img src={thisPost.image} className={classes.img} alt="header_image" /> */}
-        {/* <div className={classes.animated}>👇</div>
-         */}
         <div className={classes.animated}>
           <KeyboardArrowDownIcon sx={{ fontSize: "3rem" }} />
         </div>

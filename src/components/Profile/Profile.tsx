@@ -20,10 +20,18 @@ const Profile: React.FC = () => {
   const allYourPosts = posts.filter(
     (each) => each.author === curUser?.displayName
   );
+  const sortedPosts = [...allYourPosts];
+  sortedPosts.sort((a, b) => {
+    if (a.time.seconds > b.time.seconds) {
+      return -1;
+    } else {
+      return 1;
+    }
+  });
+
   const usernameInputRef = useRef<HTMLInputElement>();
-  // const profileInputRef = useRef<HTMLInputElement>();
   const [profilePic, setProfilePic] = useState<string>(
-    curUser!.photoURL!.toString()
+    curUser?.photoURL!.toString() || ""
   );
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -63,7 +71,7 @@ const Profile: React.FC = () => {
     setChangeProfile(false);
   };
 
-  if (!curUser) return <h1>No User</h1>;
+  if (!curUser) return <Loader type="ThreeDots"></Loader>;
 
   return (
     <Fragment>
@@ -133,7 +141,7 @@ const Profile: React.FC = () => {
             )}
           </header>
           <main className={classes.posts}>
-            {allYourPosts.map((each) => (
+            {sortedPosts.map((each) => (
               <CardForPost
                 id={each.id}
                 title={each.title}

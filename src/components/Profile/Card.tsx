@@ -1,11 +1,7 @@
 import React from "react";
 import classes from "./Card.module.css";
-import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea, CardActions } from "@mui/material";
 import Card from "@mui/material/Card";
-import Button from "@mui/material/Button";
 import { useNavigate } from "react-router";
 import { doc, deleteDoc } from "@firebase/firestore";
 import { db } from "../../firebase";

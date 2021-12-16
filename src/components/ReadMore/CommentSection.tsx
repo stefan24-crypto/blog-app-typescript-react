@@ -1,10 +1,9 @@
 import React, { Fragment, useRef, useState } from "react";
-import { Comment, Post } from "../../models";
+import { Post } from "../../models";
 import classes from "./CommentSection.module.css";
 import TextField from "@mui/material/TextField";
 import CustomButton from "../UI/Button";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { dataActions } from "../../store/data-slice";
+import { useAppSelector } from "../../store/hooks";
 import CommentDiv from "./Comment";
 import { doc, Timestamp, updateDoc } from "@firebase/firestore";
 import { db } from "../../firebase";
@@ -17,7 +16,6 @@ interface CommentSectionProps {
 const CommentSection: React.FC<CommentSectionProps> = ({ thisPost }) => {
   const commentInputRef = useRef<HTMLInputElement>();
   const [showLoader, setShowLoader] = useState<boolean>(false);
-  const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.auth.curUser);
 
   const addCommentHandler = async (e: React.FormEvent) => {

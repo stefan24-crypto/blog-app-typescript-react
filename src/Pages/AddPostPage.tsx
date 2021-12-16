@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import AddPost from "../components/AddPost/AddPost";
 import { useAppSelector } from "../store/hooks";
-import Typography from "@mui/material/Typography";
 import Loader from "react-loader-spinner";
 
 const AddPostPage: React.FC = () => {

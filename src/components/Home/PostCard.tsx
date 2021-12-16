@@ -33,7 +33,7 @@ const PostCard: React.FC<PostCardProps> = ({
       <header className={classes.header}>
         <img src={image} className={classes.img} alt="header_image" />
       </header>
-      <div className={classes.info}>
+      <main className={classes.info}>
         <div className={classes.title}>
           <h1>{title}</h1>
         </div>
@@ -59,7 +59,7 @@ const PostCard: React.FC<PostCardProps> = ({
             Continue Reading
           </CustomButton>
         </div>
-      </div>
+      </main>
     </div>
   );
 };

@@ -4,7 +4,6 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   updateProfile,
-  User,
 } from "@firebase/auth";
 import classes from "./Login.module.css";
 import { TextField } from "@mui/material";
@@ -51,9 +50,9 @@ const Login: React.FC = () => {
 
   return (
     <Fragment>
-      <div className={classes.title}>
+      <header className={classes.title}>
         <h1> {isLogin ? "Login" : "Sign Up"}</h1>
-      </div>
+      </header>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.input}>
           <label htmlFor="email">Email</label>
