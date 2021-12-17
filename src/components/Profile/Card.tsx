@@ -28,8 +28,15 @@ const CardForPost: React.FC<CardForPostProps> = ({
     await deleteDoc(postDoc);
   };
   return (
-    <Card sx={{ maxHeight: 500 }}>
-      <CardMedia component="img" height="200" image={image} alt="post_image" />
+    <Card
+      sx={{
+        height: 550,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+      }}
+    >
+      <CardMedia component="img" height="250" image={image} alt="post_image" />
       <div className={classes.content}>
         <div className={classes.title}>
           <h1>{title}</h1>
